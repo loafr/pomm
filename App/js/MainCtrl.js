@@ -10,12 +10,14 @@ angular.module('pommApp').controller('MainCtrl', function($scope, mainService, $
 	var ref = new Firebase("https://pomm.firebaseio.com/");
     var auth = $firebaseAuth(ref);
     debugger;
-    mainService.$onAuth(function(authData) {
-     $scope.authData = authData;
-     console.log("you clicked login button");
-     debugger;
-  });
-
+    $scope.googleLogin = function() { //this is from login.html when user clicks login button
+	    mainService.$onAuth(function(authData) {
+	    $scope.authData = authData;
+	    console.log("you clicked the login button"); //these 3 lines are from firebase docs
+	    //debugger;
+	    });
+	  mainService.firebaseLogins.googleLogin(); //this should be calling my googleLogin function, but it says it is undefined
+};
 });
 
 
