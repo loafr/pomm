@@ -22,7 +22,7 @@ app.config(function($routeProvider){
   })
   .when('/Pay', {
   	templateUrl: 'templates/pay.html',
-  	controller: 'TemplateCtrl'
+  	controller: 'MainCtrl'
   })
   .when('/Login', {
   	templateUrl: 'templates/login.html',
