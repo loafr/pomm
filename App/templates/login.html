@@ -1,14 +1,23 @@
-<p class="navBar"><span class="nav-text"><a href="/#/">Home</a></span> <span class="nav-text"><a href="/#/Rules">Rules</a></span> <span class="nav-text"><a href="/#/Legal">Legal</a></span> <span class="nav-text"><a href="/#/About">About</a></span></p>
-	  <div class="hero-container">
-<h1>Login Page!!</h1>
-	<div ng-show="authData">
-      <p>Hello, {{ authData.google.displayName }}</p>
-      <button ng-click="auth.$unauth()">Logout</button>
-    </div>
-    <div ng-hide="authData">
-      <p>Welcome, please log in.</p>
-      <!-- <button ng-click="auth.$authWithOAuthPopup()">Login</button> -->
-      <button ng-click="googleLogin()">Login</button>
-    </div>
-    <div class="moneyPot">$<span id="moneyPot"></span></div>
+<div class="hero-container">
+  <h1>Login Page!!</h1>
+  	<div ng-show="authData">
+        <p>Hello, {{ authData.google.displayName }}</p>
+        <button ng-click="auth.$unauth()">Logout</button>
+      </div>
+      <div ng-hide="authData">
+        <p>Welcome, please log in.</p>
+        <!-- <button ng-click="auth.$authWithOAuthPopup()">Login</button> -->
+        <button ng-click="emailLogin()">Email Login</button> <br>
+        Or<br>
+        <a class="btn-auth btn-facebook" ng-click="facebookLogin()">
+          Sign in with <b>Facebook</b>
+        </a>
+    	  <a class="btn-auth btn-twitter" ng-click="twitterLogin()">
+          Sign in with <b>Twitter</b>
+        </a>
+        <a class="btn-auth btn-google" ng-click="googleLogin()">
+          Sign in with <b>Google</b>
+        </a>
+      </div>
+      <div class="moneyPot">$<span id="moneyPot"></span></div>
 </div>
