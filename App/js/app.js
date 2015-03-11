@@ -10,15 +10,15 @@ app.config(function($routeProvider){
   })
   .when('/Rules/', {
   	templateUrl: 'templates/rules.html',
-  	controller: 'TemplateCtrl'
+  	controller: 'MainCtrl'
   })
   .when('/Legal/', {
   	templateUrl: 'templates/legal.html',
-  	controller: 'TemplateCtrl'
+  	controller: 'MainCtrl'
   })
   .when('/About', {
   	templateUrl: 'templates/about.html',
-  	controller: 'TemplateCtrl'
+  	controller: 'MainCtrl'
   })
   .when('/Pay', {
   	templateUrl: 'templates/pay.html',

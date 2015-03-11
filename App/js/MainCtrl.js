@@ -14,20 +14,48 @@ angular.module('pommApp').controller('MainCtrl', function($scope, mainService, $
 	    // $scope.authData = authData;
 	    // console.log("you clicked the login button"); //these 3 lines are from firebase docs
 	    //});  
-	  
+	
+	$scope.createUser = function($scope.userEmail, $scope.userPassword) {
+		mainService.createUser($scope.userEmail, $scope.userPassword).then(function() {
+			ref.authWithPassword({ //logging user in after account is created
+			  email    : $scope.userEmail,
+			  password : $scope.userPassword
+			}, function(error, authData) {
+			  if (error) {
+			    console.log("Login Failed!", error);
+			  } else {
+			    console.log("Authenticated successfully with payload:", authData);
+			  }
+			});
+		})
+	};  
 	$scope.googleLogin = function() {
-		mainService.googleLogin();
+		mainService.googleLogin().then(function() {
+			debugger;
+			$scope.loggedIn = true;
+		});
 	};
 	$scope.facebookLogin = function() {
-		mainService.facebookLogin();
+		mainService.facebookLogin().then(function() {
+			$scope.loggedIn = true;
+		});
 	};
 	$scope.twitterLogin = function() {
-		mainService.twitterLogin();
+		mainService.twitterLogin().then(function() {
+			$scope.loggedIn = true;
+		});
 	};
 	$scope.emailLogin = function() {
-		mainService.emailLogin();
+		mainService.emailLogin().then(function() {
+			$scope.loggedIn = true;
+			$scope.emailLoginShow = !$scope.emailLoginShow;
+			$scope.userEmail = '';
+			$scope.userPassword = '';
+		});
 	};
-
+	$scope.emailLoginShow = function() {
+		$scope.emailLoginShow = !$scope.emailLoginShow;
+	}
 });
 
 

@@ -1,35 +1,74 @@
-angular.module('pommApp').factory("mainService", ["$firebaseAuth", function($firebaseAuth) {
+angular.module('pommApp').factory("mainService", function($firebaseAuth, $q) {
   var ref = new Firebase("https://pomm.firebaseio.com/");
   var firebaseLogins = {}; // creates empty object for all the logins to be individual methods
   //firebaseLogins is undefined from my MainCtrl
   //return $firebaseAuth(ref); // test to see if this works
+
+  firebaseLogins.createUser = function(email, pswrd) {
+	  ref.createUser({
+	  email: email, 
+	  password: pswrd 
+	  }, function(error, userData) {
+		  if (error) {
+		    console.log("Error creating user:", error);
+		  } else {
+		    console.log("Successfully created user account with uid:", userData.uid);
+		  }
+	});
+	};//email createUser
+
   firebaseLogins.emailLogin = function() { // email login
-  	  return $firebaseAuth(ref); 
+  	  var deferred = $q.defer();
+  	  $firebaseAuth(ref)
+
+  	  
+  	  
+  	  .then(function(response) {
+  	  	console.log(response);
+  	  	deferred.resolve(response);
+  	  });
+  	  return deferred.promise; 
   };//end emailLogin
+
   firebaseLogins.googleLogin = function() { // google login
-	  return ref.authWithOAuthPopup("google", function(error, authData) {
-	  if (error) {
-	    console.log("Login Failed!", error);
-	  } else {
-	    console.log("Authenticated successfully with payload:", authData);
+  	  var deferred = $q.defer();
+	  ref.authWithOAuthPopup("google", function(error, authData) {
+		  if (error) {
+		    console.log("Login Failed!", error);
+		  } else {
+		    console.log("Authenticated successfully with payload:", authData);
 	  }
-  })};//end googleLogin
+  	}).then(function(response) {
+  		deferred.resolve(response);
+  	}); return deferred.promise;
+  };//end googleLogin
+
   firebaseLogins.facebookLogin = function() { // FB login
-	  return ref.authWithOAuthPopup("facebook", function(error, authData) {
-	  if (error) {
-	    console.log("Login Failed!", error);
-	  } else {
-	    console.log("Authenticated successfully with payload:", authData);
+  	var deferred = $q.defer();
+	  ref.authWithOAuthPopup("facebook", function(error, authData) {
+		  if (error) {
+		    console.log("Login Failed!", error);
+		  } else {
+		    console.log("Authenticated successfully with payload:", authData);
 	  }
-  })};//end facebookLogin
+  }).then(function(response) {
+  	deferred.resolve(response);
+  }); return deferred.promise;
+  };//end facebookLogin
+
   firebaseLogins.twitterLogin = function() { // twitter login
-	  return ref.authWithOAuthPopup("twitter", function(error, authData) {
-	  if (error) {
-	    console.log("Login Failed!", error);
-	  } else {
-	    console.log("Authenticated successfully with payload:", authData);
+  	var deferred = $q.defer();
+	  ref.authWithOAuthPopup("twitter", function(error, authData) {
+		  if (error) {
+		    console.log("Login Failed!", error);
+		  } else {
+		    console.log("Authenticated successfully with payload:", authData);
 	  }
-  })};//end twitterLogin
+  }).then(function(response) {
+  	deferred.resolve(response);
+  }); return	deferred.promise;
+  };//end twitterLogin
+
   return firebaseLogins;
 
-}]);
+});
