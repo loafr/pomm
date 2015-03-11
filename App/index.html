@@ -19,7 +19,7 @@
 <body ng-app="pommApp">
 
 	<div ng-controller="MainCtrl">
-		<p class="navBar"><span class="nav-text"><a href="/#/">Home</a></span> <span class="nav-text"><a href="/#/Rules">Rules</a></span> <span class="nav-text"><a href="/#/Legal">Legal</a></span> <span class="nav-text"><a href="/#/About">About</a></span><span class="nav-text"><a href="/#/Login">Login</a></span></p>
+		<p class="navBar"><span class="nav-text"><a href="/#/">Home</a></span> <span class="nav-text"><a href="/#/Rules">Rules</a></span> <span class="nav-text"><a href="/#/Legal">Legal</a></span> <span class="nav-text"><a href="/#/About">About</a></span><span class="nav-text"><a href="/#/Login" ng-hide="loggedIn">Login</a></span></p>
 
 		<ng-view></ng-view> <!-- Router's job here -->
 		
