@@ -5,9 +5,15 @@
         <button ng-click="auth.$unauth()">Logout</button>
       </div>
       <div ng-hide="authData"> <!--  -->
-        <p>Welcome, please log in.</p>
+        <p>Welcome! Create an account:</p>
+        <form>
+          <input type="text" placeholder="Email" ng-model="newEmail"><br>
+          <input type="password" placeholder="Password" ng-model="newPassword"><br>
+          <input type="submit" ng-click="createUser()" placeholder="Create"><br>
+        </form>
         <!-- <button ng-click="auth.$authWithOAuthPopup()">Login</button> -->
         <!-- <button ng-click="emailLogin()" ng-show="emailLoginShow">Email Login</button> <br> -->
+        Existing users, please login:<br>
         <button ng-click="emailLoginShow()">Email Login</button> <br>
         <!-- <p ng-show="emailLoginShow">It will appear here!</p> -->
         <form ng-hide="emailLoginShow">

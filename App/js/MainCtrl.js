@@ -14,13 +14,18 @@ angular.module('pommApp').controller('MainCtrl', function($scope, mainService, $
 	    // $scope.authData = authData;
 	    // console.log("you clicked the login button"); //these 3 lines are from firebase docs
 	    //});  
+
+	var emlObj = {email: $scope.userEmail,
+	              password: $scope.userPassword};
+	// var newEmlObj = {email: $scope.newEmail,
+	// 			     password: $scope.newPassword};
 	
-	$scope.createUser = function($scope.userEmail, $scope.userPassword) {
-		mainService.createUser($scope.userEmail, $scope.userPassword).then(function() {
-			ref.authWithPassword({ //logging user in after account is created
-			  email    : $scope.userEmail,
-			  password : $scope.userPassword
-			}, function(error, authData) {
+	
+	$scope.createUser = function() {
+		var newEmlObj = {email: $scope.newEmail, password: $scope.newPassword};
+		debugger;
+		mainService.createUser(newEmlObj).then(function() {
+			ref.authWithPassword(newEmlObj, function(error, authData) {
 			  if (error) {
 			    console.log("Login Failed!", error);
 			  } else {
@@ -30,8 +35,9 @@ angular.module('pommApp').controller('MainCtrl', function($scope, mainService, $
 		})
 	};  
 	$scope.googleLogin = function() {
+			console.log("part 1");
 		mainService.googleLogin().then(function() {
-			debugger;
+			console.log('part 4');
 			$scope.loggedIn = true;
 		});
 	};
@@ -45,8 +51,8 @@ angular.module('pommApp').controller('MainCtrl', function($scope, mainService, $
 			$scope.loggedIn = true;
 		});
 	};
-	$scope.emailLogin = function() {
-		mainService.emailLogin().then(function() {
+	$scope.emailLogin = function(emlObj) {
+		mainService.emailLogin(emlObj).then(function() {
 			$scope.loggedIn = true;
 			$scope.emailLoginShow = !$scope.emailLoginShow;
 			$scope.userEmail = '';

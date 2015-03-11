@@ -4,11 +4,8 @@ angular.module('pommApp').factory("mainService", function($firebaseAuth, $q) {
   //firebaseLogins is undefined from my MainCtrl
   //return $firebaseAuth(ref); // test to see if this works
 
-  firebaseLogins.createUser = function(email, pswrd) {
-	  ref.createUser({
-	  email: email, 
-	  password: pswrd 
-	  }, function(error, userData) {
+  firebaseLogins.createUser = function(emlObj) {
+	  ref.createUser(emlObj, function(error, userData) {
 		  if (error) {
 		    console.log("Error creating user:", error);
 		  } else {
@@ -17,13 +14,16 @@ angular.module('pommApp').factory("mainService", function($firebaseAuth, $q) {
 	});
 	};//email createUser
 
-  firebaseLogins.emailLogin = function() { // email login
+  firebaseLogins.emailLogin = function(emlObj) { // email login
   	  var deferred = $q.defer();
-  	  $firebaseAuth(ref)
-
-  	  
-  	  
-  	  .then(function(response) {
+  	  // $firebaseAuth(ref)
+  	  ref.authWithPassword(emlObj, function(error, authData) {
+		  if (error) {
+		    console.log("Login Failed!", error);
+		  } else {
+		    console.log("Authenticated successfully with payload:", authData);
+		  }
+		}).then(function(response) {
   	  	console.log(response);
   	  	deferred.resolve(response);
   	  });
@@ -32,15 +32,21 @@ angular.module('pommApp').factory("mainService", function($firebaseAuth, $q) {
 
   firebaseLogins.googleLogin = function() { // google login
   	  var deferred = $q.defer();
+  	  console.log("part 2")
+  	  debugger;
 	  ref.authWithOAuthPopup("google", function(error, authData) {
+	  	console.log('part 2.5')
 		  if (error) {
 		    console.log("Login Failed!", error);
 		  } else {
 		    console.log("Authenticated successfully with payload:", authData);
 	  }
-  	}).then(function(response) {
-  		deferred.resolve(response);
-  	}); return deferred.promise;
+  	})//.then(function(response) {
+  		//name = response.google.cachedUserProfile.given_name;
+  		//pic = response.google.cachedUserProfile.picture;
+  		//deferred.resolve(response);
+  	//}); console.log("part 3"); 
+  		return deferred.promise;
   };//end googleLogin
 
   firebaseLogins.facebookLogin = function() { // FB login
