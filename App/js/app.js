@@ -28,6 +28,10 @@ app.config(function($routeProvider){
   	templateUrl: 'templates/login.html',
   	controller: 'MainCtrl'
   })
+   .when('/charge', {
+    templateUrl: 'templates/charge.html',
+    controller: 'MainCtrl'
+  })
   .when('/states/:state', {
   	templateUrl: 'templates/states/state-template.html',
   	controller: 'StateCtrl'
