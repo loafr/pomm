@@ -1,22 +1,17 @@
 <div class="hero-container">
 	<h1>Pay Page!!</h1>
 		<br>
-		<div class="moneyPot">$<span id="moneyPot"></span></div>
+		<money-pot class="moneyPot"></money-pot> 
 		<br>
-		<form>
-			<input type="text" placeholder="Name"><br>
-			<input type="text" placeholder="Credit Card #"><br>
-			<input type="text" placeholder="Name"><br>
-		</form>
-		<form action="pay.html" method="POST"> <!-- this isn't showing up, docs say it is only dependant on stripe.js (in <head>) -->
-		  <script
-		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		    data-key="pk_test_bg9GaIsqZZA6eLdIP1yRPfDM"
-		    data-amount="100"
-		    data-name="Pay Off My Mortgage"
-		    data-description="1 entry ($1.00)"
-		    data-image="/128x128.png">
-		  </script>
-		</form>
-		<br>
+	<form action="/#/charge" method="POST">
+	  <script
+	    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	    data-key="pk_test_bg9GaIsqZZA6eLdIP1yRPfDM"
+	    data-image="favicon.png"
+	    data-name="Pay Off My Mortgage"
+	    data-description="1 entry ($1.00)"
+	    data-amount="100">
+	  </script>
+	</form>
 </div>
+
