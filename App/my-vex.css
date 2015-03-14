@@ -1,0 +1,22 @@
+
+.vex-dialog-button-Google {
+	color: red;
+}
+
+.vex-dialog-button-Twitter {
+	color: blue;
+}
+
+.vex-dialog-button-Facebook {
+	color: navy;
+}
+
+.vex-dialog-button-Email {
+	color: green;
+	margin-left: 6px;
+}
+
+.vex-button-login-center {
+	float: none;
+	margin:	0 auto;
+}
