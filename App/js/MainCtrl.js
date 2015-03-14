@@ -23,7 +23,7 @@ angular.module('pommApp').controller('MainCtrl', function($scope, mainService, $
 	
 	$scope.createUser = function() {
 		var newEmlObj = {email: $scope.newEmail, password: $scope.newPassword};
-		debugger;
+		// debugger;
 		mainService.createUser(newEmlObj).then(function() {
 			ref.authWithPassword(newEmlObj, function(error, authData) {
 			  if (error) {
@@ -51,7 +51,8 @@ angular.module('pommApp').controller('MainCtrl', function($scope, mainService, $
 			$scope.loggedIn = true;
 		});
 	};
-	$scope.emailLogin = function(emlObj) {
+	$scope.emailLogin = function() {
+		var emlObj = {email: $scope.userEmail, password: $scope.userPassword};
 		mainService.emailLogin(emlObj).then(function() {
 			$scope.loggedIn = true;
 			$scope.emailLoginShow = !$scope.emailLoginShow;

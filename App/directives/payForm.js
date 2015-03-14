@@ -1,7 +1,7 @@
 
 //this will need to be turned into a directive, or just have one page where the user can pay:
 
-<form action="" method="POST">
+		<form action="" method="POST">
 		  <script
 		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		    data-key="pk_test_bg9GaIsqZZA6eLdIP1yRPfDM"
