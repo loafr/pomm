@@ -1,14 +1,5 @@
 <div class="hero-container">
-		<money-pot class="moneyPot"></money-pot> 
-	<form action="/#/charge" method="POST">
-	  <script
-	    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-	    data-key="pk_test_bg9GaIsqZZA6eLdIP1yRPfDM"
-	    data-image="favicon.png"
-	    data-name="Pay Off My Mortgage"
-	    data-description="1 entry ($1.00)"
-	    data-amount="100">
-	  </script>
-	 </form>
+		<money-pot class="moneyPot"></money-pot>
+    <button ng-click="payment($event)">Purchase</button>
 </div>
 
