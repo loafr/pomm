@@ -56,8 +56,50 @@ footer {
    padding: 1% 5% 1% 5%;
 }
 
-.hero-container-demo {
+.hero-container-home {
    background-image: url("img/homeBG.jpg");
+   height: 90%;
+   width: 100%;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-attachment: fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   margin-bottom: -19px;
+}
+
+.hero-container-rules {
+   background-image: url("img/rulesBG.jpg");
+   height: 90%;
+   width: 100%;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-attachment: fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   margin-bottom: -19px;
+}
+
+.hero-container-about {
+   background-image: url("img/aboutBG.jpg");
+   height: 90%;
+   width: 100%;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-attachment: fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   margin-bottom: -19px;
+}
+
+.hero-container-legal {
+   background-image: url("img/legalBG.jpg");
    height: 90%;
    width: 100%;
    background-repeat: no-repeat;
