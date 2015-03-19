@@ -1,12 +1,4 @@
-// angular.module('pommApp').controller("MainCtrl", ["$scope", "Auth", function($scope, Auth, $firebase) {
-//   // any time auth status updates, add the user data to scope
-//   Auth.$onAuth(function(authData) {
-//      $scope.authData = authData;
-//   });
-// }]);
-
-//stage1:
-angular.module('pommApp').controller('MainCtrl', function($scope, mainService, $firebaseAuth) {
+angular.module('pommApp').controller('MainCtrl', function($scope, $modal, $log, mainService, $firebaseAuth) {
 	var ref = new Firebase("https://pomm.firebaseio.com/");
     var auth = $firebaseAuth(ref);
      
@@ -63,21 +55,49 @@ angular.module('pommApp').controller('MainCtrl', function($scope, mainService, $
 	$scope.emailLoginShow = function() {
 		$scope.emailLoginShow = !$scope.emailLoginShow;
 	}
+
+
+
+	//start of modal stuff:
+	$scope.items = ['item1', 'item2', 'item3'];
+
+  $scope.open = function (size) {
+
+    var modalInstance = $modal.open({
+      templateUrl: 'myModalContent.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      resolve: {
+        items: function () {
+          return $scope.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
 });
 
+// Please note that $modalInstance represents a modal window (instance) dependency.
+// It is not the same as the $modal service used above.
 
-// // how does this fit in:
-// app.controller("SampleCtrl", ["$scope", "$firebaseAuth",
-//   function($scope, $firebaseAuth) {
-//     var ref = new Firebase("https://pomm.firebaseio.com/");
-//     var auth = $firebaseAuth(ref);
-//   }
-// ]);
+angular.module('pommApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
 
-// //this is for angularFire:
-// app.controller("MainCtrl", ["$scope", "Auth", function($scope, Auth) {
-//   // any time auth status updates, add the user data to scope
-//   Auth.$onAuth(function(authData) {
-//      $scope.authData = authData;
-//   });
-// }]);
+  $scope.items = items;
+  $scope.selected = {
+    item: $scope.items[0]
+  };
+
+  $scope.ok = function () {
+    $modalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+});
+
