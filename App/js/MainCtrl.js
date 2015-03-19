@@ -56,7 +56,28 @@ angular.module('pommApp').controller('MainCtrl', function($scope, $modal, $log, 
 		$scope.emailLoginShow = !$scope.emailLoginShow;
 	}
 
+	$scope.payment = function(e){
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_bg9GaIsqZZA6eLdIP1yRPfDM',
+            image: 'favicon.png',
+            token: function(token) {
+                // Use the token to create the charge with a server-side script.
+                // You can access the token ID with `token.id`
+            }
+        });
 
+        handler.open({
+            name: 'Pay My Mortgage',
+            description: 'Entry Fee',
+            amount: 100
+        });
+        e.preventDefault();
+
+        // Close Checkout on page navigation
+        $(window).on('popstate', function() {
+            handler.close();
+        });
+    };
 
 	//start of modal stuff:
 	$scope.items = ['item1', 'item2', 'item3'];

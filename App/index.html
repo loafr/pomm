@@ -9,7 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="auth-buttons.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:100,400' rel='stylesheet' type='text/css'>
-	<script src="bower_components/braintree-angular/dist/braintree-angular.js"></script> <!-- Stripe -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> <!-- Angular CDN -->
 	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script> <!-- jQuery -->
 	<script src="https://cdn.firebase.com/js/client/2.1.2/firebase.js"></script> <!-- Firebase -->
@@ -38,20 +37,8 @@
   				<a id="nText" ng-click="open()"><button type="button" class="btn btn-default navbar-btn">Log In</button></a>
  			 </div>
 		</nav>
-		
 		<ng-view></ng-view> <!-- Router's job here -->
-
-	<form action="/#/Charge" method="POST"> <!-- this is the index stripe form -->
-	  <script
-	    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-	    data-key="pk_test_bg9GaIsqZZA6eLdIP1yRPfDM"
-	    data-image="favicon.png"
-	    data-name="Pay Off My Mortgage"
-	    data-description="1 entry ($1.00)"
-	    data-amount="100">
-	  </script>
-	</form>
-	<div> <!-- this is the modal overlay: -->
+		<div> <!-- this is the modal overlay: -->
 	    <script type="text/ng-template" id="myModalContent.html">
 	        <div class="modal-header">
 	            <h3 class="modal-title">Please Sign In:</h3>
@@ -66,6 +53,7 @@
 					<div class="vex-dialog-buttons">
 						<button type="submit" class="vex-dialog-button-primary vex-dialog-button vex-first">Login</button>
 						<button type="button" class="vex-dialog-button-secondary vex-dialog-button vex-last">Back</button>
+						<money-pot></money-pot>
 					</div>
 				  </form>
 				</div>
@@ -76,18 +64,11 @@
 	        </div>
 	    </script>
 		</div>
-		<!-- <a class="demo-button"><button>demo button</button></a> -->
 		<div class="mboxDefault">
 		</div>
 		<script type="text/javascript">
 		 mboxCreate('pommFooterMbox');
 		</script>
-
-		<!-- <button class="btn btn-default" ng-click="open()">Open me!</button>
-	    <button class="btn btn-default" ng-click="open('lg')">Large modal</button>   
-	    <button class="btn btn-default" ng-click="open('sm')">Small modal</button>
-	    <div ng-show="selected">Selection from a modal: {{ selected }}</div> -->
-
 		<footer class="footer" style="height: 100px;">
       		<div class="container" style="padding-top: 25px;">
        		 <div class="text-muted"><span class="footer-comp"><img style="height: 50px; width: 50px;" src="http://cdn.flaticon.com/png/256/22141.png"></img>Click the Entry</span><span class="footer-comp"><img style="height: 50px; width: 50px;" src="http://freeiconbox.com/icon/256/17794.png"></img>Buy a Ticket</span><span class="footer-comp"><img style="height: 50px; width: 50px;" src="http://cdn.flaticon.com/png/256/20687.png"></img>Pot gets Bigger</span><span class="footer-comp"><img style="height: 50px; width: 50px;" src="https://cdn0.iconfinder.com/data/icons/insurance-4/500/loan-128.png">Winner loses Mortgage!</span></div>
@@ -99,6 +80,6 @@
 <script src="services/mainService.js"></script>
 <script src="directives/counter.js"></script>
 <script src="js/jQuery.js"></script>
-<!-- <script src="js/AdobeAnalytics/AppMeasurement.js"></script> -->
+<script src="https://checkout.stripe.com/checkout.js"></script>
 </body>
 </html>

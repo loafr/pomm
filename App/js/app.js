@@ -27,8 +27,8 @@ app.config(function($routeProvider){
   	templateUrl: 'templates/login.html',
   	controller: 'MainCtrl'
   })
-   .when('/charge', {
-    templateUrl: 'templates/charge.html',
+   .when('/Charge', {
+    templateUrl: 'templates/pay.html',
     controller: 'MainCtrl'
   })
   .when('/states/:state', {

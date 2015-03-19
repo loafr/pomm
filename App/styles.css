@@ -38,6 +38,7 @@ footer {
   opacity: .9;
   border-radius: 6px;
   font-size: 24px;
+  color: #337ab7;
 }
 
 .hero-container {
@@ -144,7 +145,7 @@ footer {
    font-family: 'Raleway', sans-serif;
    font-size: 180px;
    font-size: 16vw;
-   padding: 100px 0px 50px 0px;
+   padding: 150px 0px 50px 0px;
    color: rgba(230, 230, 230, 0.75);
    padding-top: 100px;
 }
