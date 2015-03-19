@@ -41,7 +41,7 @@
 		
 		<ng-view></ng-view> <!-- Router's job here -->
 
-	<form action="/#/charge" method="POST"> <!-- this is the index stripe form -->
+	<form action="/#/Charge" method="POST"> <!-- this is the index stripe form -->
 	  <script
 	    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 	    data-key="pk_test_bg9GaIsqZZA6eLdIP1yRPfDM"
@@ -84,13 +84,13 @@
 		</script>
 
 		<!-- <button class="btn btn-default" ng-click="open()">Open me!</button>
-	    <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
+	    <button class="btn btn-default" ng-click="open('lg')">Large modal</button>   
 	    <button class="btn btn-default" ng-click="open('sm')">Small modal</button>
 	    <div ng-show="selected">Selection from a modal: {{ selected }}</div> -->
 
-		<footer class="footer">
-      		<div class="container">
-       		 <div class="text-muted"><span class="footer-comp">Click the Entry</span><span class="footer-comp"><img src="dollar_silver.icns"></img>Buy a Ticket</span><span class="footer-comp">Pot gets Bigger</span><span class="footer-comp">Winner loses Mortgage!</span></div>
+		<footer class="footer" style="height: 100px;">
+      		<div class="container" style="padding-top: 25px;">
+       		 <div class="text-muted"><span class="footer-comp"><img style="height: 50px; width: 50px;" src="http://cdn.flaticon.com/png/256/22141.png"></img>Click the Entry</span><span class="footer-comp"><img style="height: 50px; width: 50px;" src="http://freeiconbox.com/icon/256/17794.png"></img>Buy a Ticket</span><span class="footer-comp"><img style="height: 50px; width: 50px;" src="http://cdn.flaticon.com/png/256/20687.png"></img>Pot gets Bigger</span><span class="footer-comp"><img style="height: 50px; width: 50px;" src="https://cdn0.iconfinder.com/data/icons/insurance-4/500/loan-128.png">Winner loses Mortgage!</span></div>
       		</div>
     	</footer>
 	</div>
