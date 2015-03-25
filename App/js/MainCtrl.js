@@ -1,21 +1,12 @@
 angular.module('pommApp').controller('MainCtrl', function($scope, $modal, $log, mainService, $firebaseAuth) {
 	var ref = new Firebase("https://pomm.firebaseio.com/");
-    var auth = $firebaseAuth(ref);
-     
-	    // mainService.$onAuth(function(authData) {
-	    // $scope.authData = authData;
-	    // console.log("you clicked the login button"); //these 3 lines are from firebase docs
-	    //});  
+    var auth = $firebaseAuth(ref); 
 
 	var emlObj = {email: $scope.userEmail,
-	              password: $scope.userPassword};
-	// var newEmlObj = {email: $scope.newEmail,
-	// 			     password: $scope.newPassword};
-	
+	              password: $scope.userPassword};	
 	
 	$scope.createUser = function() {
 		var newEmlObj = {email: $scope.newEmail, password: $scope.newPassword};
-		// debugger;
 		mainService.createUser(newEmlObj).then(function() {
 			ref.authWithPassword(newEmlObj, function(error, authData) {
 			  if (error) {
