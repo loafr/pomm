@@ -147,6 +147,16 @@ footer {
    padding: 150px 0px 50px 0px;
    color: rgba(230, 230, 230, 0.95);
    padding-top: 100px;
+   font-weight: 400;
+   -webkit-text-stroke: 1px #111;
+}
+
+.subText {
+  font-size: 2vw;
+  font-weight: 400;
+  color: rgba(230, 230, 230, 0.95);
+  -webkit-text-stroke: 1px #111;
+  padding-top: 40px;
 }
 
 .infoCopy {
@@ -216,7 +226,7 @@ footer {
   margin-left: 30px;
   padding: 15px 15px 15px 15px;
   border-radius: 15px;
-  box-shadow: 3px 3px 3px 3px #ccc;
+  box-shadow: 0px 3px 3px 3px #ccc;
 }
 
 .listy {
@@ -225,7 +235,14 @@ footer {
   font-size: 20px;
 }
 
-
+.line-separator {
+  height: 1px;
+  background: red;
+  border-bottom: 1px solid red;
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-top: -50px;
+}
 
 
 #test {
