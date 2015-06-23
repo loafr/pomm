@@ -1,4 +1,4 @@
-var app = angular.module('pommApp', ['ngRoute', 'firebase', 'ui.bootstrap']);
+var app = angular.module('pommApp', ['ngRoute', 'ui.bootstrap']);
 
 app.config(function($routeProvider){
 
