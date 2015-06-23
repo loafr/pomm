@@ -1,23 +1,17 @@
 $(document).ready(function() {
 
-$('.vex-email-login').click(function(){
+$('#requestQuote').click(function(){
         vex.dialog.open({
-            message: 'Enter your username and password:',
+            message: 'Enter your Information where you can easily be reached:',
             input: '' +
-                '<input name="username" type="text" placeholder="Username" required />' +
-                '<input name="password" type="password" placeholder="Password" required />' +
+                '<input name="Name" type="text" placeholder="Name" required />' +
+                '<input name="e-mail" type="text" placeholder="e-mail" required />' +
+                '<input name="phone" type="text" placeholder="Phone Numner" required />' +
             '',
             buttons: [
-                $.extend({}, vex.dialog.buttons.YES, { text: 'Login' }),
-                $.extend({}, vex.dialog.buttons.NO, { text: 'Back' })
-            ],
-            callback: function () {
-                $('.vex-email-login').replaceWith('<a id="nText vex-email-logout" class="vex-email-logout"><button type="button" class="btn btn-default navbar-btn">Log Out</button></a>');
-            }
+                $.extend({}, vex.dialog.buttons.YES, { text: 'OK' }),
+                $.extend({}, vex.dialog.buttons.NO, { text: 'Cancel' })
+            ]
         });
-});
-$('.vex-email-logout').click(function(){
-    console.log("hello");
-    $('#vex-email-logout').replaceWith('<a id="nText vex-email-logout" class="vex-email-login"><button type="button" class="btn btn-default navbar-btn">Log In</button></a>');
-}); 
+    });
 });

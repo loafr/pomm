@@ -57,7 +57,7 @@ footer {
 }
 
 .hero-container-home {
-   background-image: url("img/homeBG.jpg");
+   background-image: url("http://www.utahcolo.info/wp-content/uploads/2015/05/Data-Center-1280x853-Slide.jpg");
    height: 90%;
    width: 100%;
    background-repeat: no-repeat;
@@ -143,9 +143,9 @@ footer {
 .moneyPot {
    font-family: 'Raleway', sans-serif;
    font-size: 180px;
-   font-size: 16vw;
+   font-size: 4.25vw;
    padding: 150px 0px 50px 0px;
-   color: rgba(230, 230, 230, 0.75);
+   color: rgba(230, 230, 230, 0.95);
    padding-top: 100px;
 }
 
@@ -178,6 +178,55 @@ footer {
   right: 0;
   background: rgba(255, 255, 255, 0.2);
 }
+
+/*.blocked-list {
+  float: both;
+  display: inline-block;
+  padding: 15px 50px 15px 125px;
+  margin: 10px 15px 5px 10px;
+  border: 1px red solid;
+  width: 400px;
+  height: 300px;
+}*/
+
+.two-blocks {
+    position: relative;
+  z-index: 8888;
+  background: #fff;;
+  height: 50%;
+  width: 100%;
+  text-align: center;
+
+}
+
+.fancy {
+  font-size: 22px;
+}
+
+.quote {
+  font-size: 32px;
+}
+
+.blocked-list {
+  width: 400px;
+  height: 300px;
+  background: #eee;; 
+  display: inline-block;
+  margin-right:30px;
+  margin-left: 30px;
+  padding: 15px 15px 15px 15px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px 3px #ccc;
+}
+
+.listy {
+  margin: 5px 20px 5px 20px;
+  padding: 10px 5px 10px 5px;
+  font-size: 20px;
+}
+
+
+
 
 #test {
 /*    margin-top: 25px;
